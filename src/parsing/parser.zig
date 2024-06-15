@@ -337,7 +337,7 @@ pub fn ParserType(comptime options: TemplateOptions) type {
                 => return null,
 
                 else => {
-                    var tokenizer = std.mem.tokenize(u8, text_part.content.slice, " \t");
+                    var tokenizer = std.mem.tokenizeAny(u8, text_part.content.slice, " \t");
                     if (tokenizer.next()) |value| {
                         if (tokenizer.next() == null) {
                             return value;
