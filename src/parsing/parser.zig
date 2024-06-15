@@ -446,7 +446,7 @@ pub fn ParserType(comptime options: TemplateOptions) type {
                 return empty;
             } else {
                 const path_separator = ".";
-                var iterator = std.mem.tokenize(u8, identifier, path_separator);
+                var iterator = std.mem.tokenizeAny(u8, identifier, path_separator);
                 return (try action(self, &iterator, 0)) orelse empty;
             }
         }
